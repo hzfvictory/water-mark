@@ -61,9 +61,11 @@ MutationObserver 在 IE 中最低要就是 IE11，如果你的网站不需要支
 | waterMarkName | 水印文字       | String\|Number | -          | -                                            |
 | canvasOpt     | canvas的参数   | Object         | -          | 详情下面                                     |
 | warpperEle    | 盛放的容器(id) | String         | -          | main                                         |
-| warStyle      | 当前容器的样式 | Object         | 可自行添加 | {width: ’100%‘, height: '100%' , .........'} |
+| warStyle      | 当前容器的样式 | Object         | 可自行添加 | {width: '100%', height: '100%' , .........} |
+
 
 #### canvasOpt
+
 
 | 参数       | 说明               | 默认值              |
 | :--------- | :----------------- | :------------------ |

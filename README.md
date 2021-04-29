@@ -1,4 +1,4 @@
-## water-mark
+## watermark-webp
 
 ### 介绍
 
@@ -7,7 +7,7 @@
 ### 安装
 
 ```javascript
-yarn add water-mark
+yarn add watermark-webp
 ```
 
 ### 使用
@@ -18,7 +18,7 @@ esm/框架 使用
 <div id="war"></div>
 
 <script type="module">
-  import waterMark from "water-mark"
+  import waterMark from "watermark-webp"
   waterMark('水印  3557', null, 'war', {left: '10px'})
 </script>
 ```

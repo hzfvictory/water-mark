@@ -44,7 +44,7 @@ script直接引入方式
 
 1. 为了防止开发者肆意修改dom已达到修改水印的目的，插件使用的 MutationObserver 异步实时监控修改dom,
 
-MutationObserver 在 IE 中最低要就是 IE11，如果你的网站不需要支持IE或者只支持到 IE11，那么你可以放心的使用 MutationObserver，否则你可能需要用到上面提到的 MutationEvent 事件，当然如果你的网站还要支持IE8及以下版本，那么你只能和 Mutation 说拜拜了
+MutationObserver 在 IE 中最低要就是 IE11，如果你的网站不需要支持IE或者只支持到 IE11，那么你可以放心的使用 MutationObserver，否则只能和 MutationObserver 说拜拜了
 
 ![](https://segmentfault.com/img/bV1NUJ?w=1257&h=325)
 
@@ -63,6 +63,7 @@ MutationObserver 在 IE 中最低要就是 IE11，如果你的网站不需要支
 | warpperEle    | 盛放的容器(id) | String         | -          | main                                         |
 | warStyle      | 当前容器的样式 | Object         | 可自行添加 | {width: '100%', height: '100%' , .........} |
 
+可有效设置 `background-position` 让水印更靠近边缘展示，使当前页面覆盖更广，默认值是 `background-position: ${canvas.width / 1.5}px ${canvas.height / 1.4}px`
 
 #### canvasOpt
 

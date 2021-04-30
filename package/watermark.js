@@ -42,8 +42,6 @@ const createWaterMark = (waterMarkName, canvasOpt = {}, warpperEle = 'main', war
   waterMarkDOM = document.createElement('div')
   waterMarkDOM.id = 'water-mark';
 
-  console.log(warStyle);
-
   // 防止有其他行内样式丢失
   waterMarkDOM.style.cssText += `
         ;width: 100%;

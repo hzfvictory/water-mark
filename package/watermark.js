@@ -8,7 +8,7 @@ const isObj = (opt, type, params) => {
 const unObserver = () => {
   // 停止监控
   observer && observer.disconnect();
-  if (waterMarkDOM) waterMarkDOM.remove();
+  waterMarkDOM && waterMarkDOM.remove();
 };
 
 const createWaterMark = (waterMarkName, canvasOpt = {}, warpperEle = 'main', warStyle = {}) => {

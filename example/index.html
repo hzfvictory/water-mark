@@ -1,33 +1,79 @@
 <!DOCTYPE html>
 <html lang="zh">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
   <title>水印</title>
+  <script src="https://unpkg.com/react@16.13.1/umd/react.development.js"></script>
+  <script src="https://unpkg.com/react-dom@16.13.1/umd/react-dom.development.js"></script>
+  <script src="https://unpkg.com/@babel/standalone@7.8.3/babel.js"></script>
+  <!--  <script src="https://cdn.jsdelivr.net/gh/hzfvictory/cdn@master/water-mark/index.js"></script>-->
+  <script src="../lib/index.js"></script>
 </head>
 <body>
-<div id="main">
-  main、main、main
-</div>
-
-<div id="war">
-  war、war、war
-</div>
+<div id="app"></div>
 </body>
 </html>
 
-<!--<script type="module">-->
-<!--  import waterMark from "https://cdn.jsdelivr.net/gh/hzfvictory/cdn@master/water-mark/index.es.js"-->
-<!--  // import waterMark from "../lib/index.es.js"-->
+<script type="text/babel">
+  const {PureComponent} = React;
 
-<!--  waterMark('水印  3557', {imgType: 'image/webp'}, 'war', {left: '10px'})-->
-<!--</script>-->
+  class WaterMark extends PureComponent {
+    constructor() {
+      super();
+      this.state = {
+        time: '',
+      }
+    }
 
-<!--<script src="../lib/index.js"></script>-->
-<script src="https://cdn.jsdelivr.net/gh/hzfvictory/cdn@master/water-mark/index.js"></script>
-<script>
-  (() => {
-    let waterMarkTemp = waterMark
-    delete window.waterMark
-    waterMarkTemp('水印  3557', null, 'war', {left: '10px'},)
-  })()
+    componentDidMount() {
+      this.waterMark = waterMark;
+      // 防止在控制台直接删除
+      delete window.waterMark
+
+      this.unObserver = this.waterMark('水印  3557', null, 'app', {left: '10px'},);
+
+      setInterval(() => {
+        let time = new Date().toLocaleString();
+        this.setState({
+          time
+        });
+      }, 1000);
+    }
+
+    componentWillUnmount() {
+      this.unWaterMark()
+    }
+
+    render = () => {
+      const {time} = this.state;
+      return (
+        <div>
+          <p style={{color: '#1989fa', cursor: 'pointer'}} onClick={this.upWaterMark}>打开水印</p>
+          <p style={{color: '#f56c6c', cursor: 'pointer'}} onClick={this.unWaterMark}>关闭水印</p>
+          <div>时间：{time}</div>
+        </div>
+      )
+    }
+
+    upWaterMark = () => {
+      this.unObserver = this.waterMark('水印  3557', null, 'app', {left: '10px'},);
+    }
+
+    unWaterMark = () => {
+      this.unObserver();
+    }
+  }
+
+  class App extends PureComponent {
+    render = () => {
+      return (
+        <div>
+          <h1>watermark-webp</h1>
+          <WaterMark />
+        </div>
+      )
+    }
+  }
+
+  ReactDOM.render(<App />, app)
 </script>

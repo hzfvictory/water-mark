@@ -19,7 +19,8 @@ esm/框架 使用
 
 <script type="module">
   import waterMark from "watermark-webp"
-  waterMark('水印  3557', null, 'war', {left: '10px'})
+  const unobserver =waterMark('水印  3557', null, 'war', {left: '10px'});
+  // unobserver 返回销毁函数
 </script>
 ```
 

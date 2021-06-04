@@ -2,13 +2,15 @@ import babel from '@rollup/plugin-babel';
 import commonjs from "@rollup/plugin-commonjs";
 import resolve from "@rollup/plugin-node-resolve";
 import json from "@rollup/plugin-json";
-import { terser } from "rollup-plugin-terser";
+import {terser} from "rollup-plugin-terser";
 
 export default {
   input: ["./package/watermark.js"],
   output: {
-    file: "./lib/index.js",
-    format: "umd",
+    file: "./lib/index.es.js",
+    format: "esm",
+    // file: "./lib/index.js",
+    // format: "umd",
     name: "waterMark",
     sourcemap: false
   },

@@ -98,7 +98,7 @@ const createWaterMark = (waterMarkName, canvasOpt = {}, warpperEle = 'main', war
         break;
       }
       // 防止直接干掉当前 dom
-      for (let item of mutation.removedNodes) {
+      for (let item of [...mutation.removedNodes, ...mutation.addedNodes]) {
         if (item.id === 'water-mark') {
           resetDom(targetNode);
           break

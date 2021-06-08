@@ -1,6 +1,6 @@
 {
   "name": "watermark-webp",
-  "version": "0.2.1",
+  "version": "0.2.3",
   "description": "",
   "scripts": {
     "dev": "rollup package/watermark.js -f esm -o lib/index.es.js  -w",
